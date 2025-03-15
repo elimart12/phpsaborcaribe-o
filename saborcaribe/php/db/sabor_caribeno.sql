@@ -76,3 +76,19 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- tabala user
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('admin', 'client') NOT NULL
+);
+
+-- usuarios
+INSERT INTO users (username, password, role) 
+VALUES 
+('admin_user', SHA2('admin123', 256), 'admin'),
+('client1', SHA2('client123', 256), 'client'),
+('client2', SHA2('client456', 256), 'client');

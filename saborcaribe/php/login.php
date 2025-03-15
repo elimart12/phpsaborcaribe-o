@@ -14,9 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['role'] = $user['role'];
         if ($user['role'] == 'admin') {
-            header("Location: admin/admin_dashboard.php");
+            header("Location: ../useradmin/admi.html ");
         } else {
-            header("Location: client/client_dashboard.php");
+            header("Location: ../cliente/indexCliente");
         }
     } else {
         echo "<script>alert('Usuario o contraseña incorrectos');</script>";

@@ -1,3 +1,5 @@
+
+<!-- anterior -->
 <?php
 $host = 'localhost';
 $dbname = 'sabor_caribeno';
@@ -23,4 +25,3 @@ if ($conn->connect_error) {
 $conn->set_charset("utf8mb4");
 
 ?>
-

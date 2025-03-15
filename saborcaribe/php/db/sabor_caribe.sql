@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-03-2025 a las 06:43:40
+-- Tiempo de generación: 15-03-2025 a las 19:19:51
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `sabor_caribeno`
+-- Base de datos: `sabor_caribe`
 --
 
 -- --------------------------------------------------------
@@ -52,6 +52,31 @@ INSERT INTO `platos` (`id`, `nombre`, `descripcion`, `precio`, `categoria`, `dis
 (9, 'Sancocho', 'Sopa tradicional con carne y vegetales.', 11.00, 'Principal', 1),
 (10, 'Flan de Coco', 'Postre tradicional de coco con caramelo.', 5.00, 'Postre', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(50) NOT NULL UNIQUE,
+  `password` VARCHAR(255) NOT NULL,
+  `role` ENUM('admin','client') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `role`) VALUES
+(1, 'admin_user', '123', 'admin'),
+(2, 'client1', '1234', 'client'),
+(3, 'client2', '1234', 'client');
+
 --
 -- Índices para tablas volcadas
 --
@@ -62,33 +87,24 @@ INSERT INTO `platos` (`id`, `nombre`, `descripcion`, `precio`, `categoria`, `dis
 ALTER TABLE `platos`
   ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT de las tablas volcadas
---
 
---
+-- Indices de la tabla `users`
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+
+
 -- AUTO_INCREMENT de la tabla `platos`
---
+
 ALTER TABLE `platos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+-- AUTO_INCREMENT de la tabla `users`
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
--- tabala user
-
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    role ENUM('admin', 'client') NOT NULL
-);
-
--- usuarios
-INSERT INTO users (username, password, role) 
-VALUES 
-('admin_user', SHA2('admin123', 256), 'admin'),
-('client1', SHA2('client123', 256), 'client'),
-('client2', SHA2('client456', 256), 'client');

@@ -10,15 +10,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->execute([$username]);
     $user = $stmt->fetch();
     
-    if ($user && password_verify($password, $user['password'])) {
+    if ($user && $password == $user['password']) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['role'] = $user['role'];
         if ($user['role'] == 'admin') {
-            header("Location: ../useradmin/admi.html ");
+            header("Location: ../useradmin/admi.html");
         } else {
-            header("Location: ../cliente/indexCliente");
+            header("Location: ../cliente/indexCliente.html");
         }
     } else {
-        echo "<script>alert('Usuario o contraseña incorrectos');</script>";
+        echo "<script>alert('Usuario o contraseña incorrectos'); window.location='../login/login.html';</script>";
+        exit();
     }
 }

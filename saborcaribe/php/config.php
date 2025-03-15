@@ -2,7 +2,7 @@
 <!-- anterior -->
 <?php
 $host = 'localhost';
-$dbname = 'sabor_caribeno';
+$dbname = 'sabor_caribe';
 $username = 'root';
 $password = '';
 

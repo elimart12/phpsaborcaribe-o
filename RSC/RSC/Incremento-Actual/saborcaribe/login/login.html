@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Sabor Caribeño</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="/saborcaribe/css/styles.css" />
+  </head>
+  <body>
+    <div class="container-fluid" id="login-container">
+      <div class="row min-vh-100">
+        <!-- Imagen decorativa lateral -->
+        <div class="col-md-6 d-none d-md-block" id="login-image-container">
+          <div class="h-100 position-relative">
+            <img src="/saborcaribe/img/login.png" alt="Comida caribeña" id="login-bg-image" class="img-fluid h-100 w-100 object-fit-cover" />
+            <div class="position-absolute top-0 start-0 p-4">
+              <h1 id="login-brand-name" class="text-white display-4 fw-bold">Sabor Caribeño</h1>
+              <p id="login-brand-slogan" class="text-white fs-5">Auténtica cocina del Caribe</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Formulario de login -->
+        <div class="col-md-6 d-flex align-items-center justify-content-center">
+          <div class="card border-0 shadow-lg p-4" id="login-card">
+            <div class="card-body p-4">
+              <div class="text-center mb-4 d-md-none">
+                <h2 id="login-mobile-brand" class="text-primary">Sabor Caribeño</h2>
+                <p id="login-mobile-slogan" class="text-muted">Auténtica cocina del Caribe</p>
+              </div>
+              
+              <h2 class="card-title text-center mb-4" id="login-title">Iniciar Sesión</h2>
+              
+              <form action="../php/login.php" method="POST" id="login-form">
+                <div class="mb-4" id="login-username-group">
+                  <label for="login-username" class="form-label">Usuario</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-primary text-white">
+                      <i class="fas fa-user"></i>
+                    </span>
+                    <input
+                      type="text"
+                      name="username"
+                      id="login-username"
+                      class="form-control"
+                      placeholder="Ingrese su nombre de usuario"
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div class="mb-4" id="login-password-group">
+                  <label for="login-password" class="form-label">Contraseña</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-primary text-white">
+                      <i class="fas fa-lock"></i>
+                    </span>
+                    <input
+                      type="password"
+                      name="password"
+                      id="login-password"
+                      class="form-control"
+                      placeholder="Ingrese su contraseña"
+                      required
+                    />
+                    <button type="button" class="btn btn-outline-secondary" id="login-toggle-password">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
+                
+                <div class="mb-3 form-check" id="login-remember-group">
+                  <input type="checkbox" class="form-check-input" id="login-remember">
+                  <label class="form-check-label" for="login-remember">Recordar sesión</label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary w-100 py-2 mb-3" id="login-submit-btn">
+                  <i class="fas fa-sign-in-alt me-2"></i>Ingresar
+                </button>
+                
+                <div class="text-center" id="login-links">
+                  <p class="mb-0">¿Olvidó su contraseña? <a href="#" id="login-recovery-link">Recuperar</a></p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    document.getElementById("login-toggle-password").addEventListener("click", function() {
+        let passwordInput = document.getElementById("login-password");
+        let icon = this.querySelector("i");
+        
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+        } else {
+            passwordInput.type = "password";
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+        }
+    });
+    </script>
+  </body>
+</html>

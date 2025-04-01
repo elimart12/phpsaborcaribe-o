@@ -1,0 +1,72 @@
+/* styles.css */
+
+/* Estilos para el header */
+#admin-header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+#admin-brand {
+  font-size: 2rem;
+}
+
+#admin-user-info {
+  text-align: right;
+}
+
+#admin-logout {
+  background-color: #fff;
+  color: #007bff;
+}
+
+/* Estilos para la navegación */
+#admin-nav {
+  background-color: #343a40;
+}
+
+#admin-nav .nav-link {
+  color: #fff;
+}
+
+#admin-nav .nav-link.active {
+  background-color: #007bff;
+}
+
+/* Estilos para las tarjetas estadísticas */
+.card {
+  border-radius: 8px;
+}
+
+.card-footer {
+  font-size: 0.875rem;
+}
+
+#admin-stats-platos .card-body,
+#admin-stats-users .card-body,
+#admin-stats-categories .card-body,
+#admin-stats-unavailable .card-body {
+  padding: 1.5rem;
+}
+
+/* Estilos para las acciones rápidas */
+#admin-quick-actions .card-body {
+  padding: 2rem;
+}
+
+#admin-quick-actions .btn {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+#admin-quick-actions .btn i {
+  font-size: 2rem;
+}
+
+/* Estilos para el footer */
+#admin-footer {
+  background-color: #343a40;
+  color: #fff;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
